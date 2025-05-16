@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 
 
 function Registeration() {
   const[username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handinregister = (e) => {
     e.preventDefault();
@@ -27,8 +30,7 @@ function Registeration() {
     localStorage.setItem("users", JSON.stringify(existingUsers));
 
     alert("Registration successful!");
-    setUsername(""); 
-    setPassword(""); 
+    navigate('/login'); 
   };
 
 

@@ -8,7 +8,6 @@ function HomePage() {
   return (
     <div>
       <h1>Game</h1>
-  
       <button onClick={() => navigate('/login')}>Log in</button>
       <button onClick={() => navigate('/register')}>Register</button>
 

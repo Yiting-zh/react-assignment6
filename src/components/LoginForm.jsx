@@ -4,18 +4,18 @@ import { useNavigate } from 'react-router-dom';
 
 
 function LoginForm() {
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); 
 
   function handleLogin() {
 
-  const storedAccounts = JSON.parse(localStorage.getItem('accounts')) || [];
+  const storedAccounts = JSON.parse(localStorage.getItem('users')) || [];
   const matchedAccount = storedAccounts.find(
-    (account) => account.name === name && account.password === password
+    (user) => user.username === username && user.password === password
   );
 
-  if (!name || !password) {
+  if (!username || !password) {
     alert("Please fill in both fields.");
     return;
   }
@@ -23,7 +23,7 @@ function LoginForm() {
 
   if (!matchedAccount) {
     alert("Name or password is incorrect. Please try again.");
-    setName('');
+    setUsername('');
     setPassword('');
     return;
   }
@@ -37,8 +37,8 @@ function LoginForm() {
     <h1>Log in</h1>
     <input 
     type="text"
-    value={name}
-    onChange={(e) => setName(e.target.value)}
+    value={username}
+    onChange={(e) => setUsername(e.target.value)}
     placeholder="Name"
     />
   
